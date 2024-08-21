@@ -41,11 +41,11 @@ app.post('/users', async (req, res) => {
         
         // Extract user details from the request body
         const { userDetails } = req.body;
-        const { username, password } = userDetails;
+        const { name, password } = userDetails;
 
         // SQL query to insert a new user into the database
-        const insertQuery = `INSERT INTO user (username, password) VALUES (?, ?)`;
-        await db.run(insertQuery, [username, password]);
+        const insertQuery = `INSERT INTO user (name, password) VALUES (?, ?)`;
+        await db.run(insertQuery, [name, password]);
 
         // Send a success response
         res.status(201).send('Data successfully inserted');
