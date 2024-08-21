@@ -2,12 +2,15 @@ const express = require('express');
 const { open } = require('sqlite');
 const sqlite3 = require('sqlite3');
 const path = require('path');
+const cors=require('cors')
 
 const app = express();
+
 const dbPath = path.join(__dirname, 'usersData.db');
 let db = null;
 
 // Middleware to parse JSON request bodies
+app.use(cors())
 app.use(express.json());
 
 // Function to initiate the database connection and start the server
